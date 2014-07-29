@@ -1,5 +1,3 @@
-require '../hand.rb'
-
 class Straight
   def initialize(hand)
     @hand = hand

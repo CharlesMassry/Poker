@@ -1,5 +1,4 @@
 class Deck
-
   def deck
     shuffle_deck
   end
@@ -7,11 +6,11 @@ class Deck
   private
 
   def shuffle_deck
-    make_face_cards.shuffle
+    make_face_cards.shuffle.uniq
   end
 
   def make_face_cards
-    make_suits.map do |card|
+    card_join.map do |card|
       if /^1\D/ =~ card
         card.sub(/^1/, "A")
       elsif /10/ =~ card
@@ -28,35 +27,19 @@ class Deck
     end
   end
 
-  def make_suits
-    stringify_cards.each_with_index.map do |card, index|
-      case index / 13
-      when 0
-        clubify(card)
-      when 1
-        diamondify(card)
-      when 2
-        spadify(card)
-      when 3
-        heartify(card)
-      end
+
+  def card_join
+    cards_and_suits.map do |pair|
+      pair.join
     end
   end
 
-  def clubify(card)
-    card + "C"
+  def cards_and_suits
+    make_cards.product(suits)
   end
 
-  def diamondify(card)
-    card + "D"
-  end
-
-  def spadify(card)
-    card + "S"
-  end
-
-  def heartify(card)
-    card + "H"
+  def suits
+    ["C", "D", "S", "H"]
   end
 
   def stringify_cards

@@ -9,6 +9,8 @@ class Flush
     end
   end
 
+  private
+
   def join_suit
     strip_suit.join
   end

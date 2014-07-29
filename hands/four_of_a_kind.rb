@@ -9,6 +9,8 @@ class FourOfAKind
     end
   end
 
+  private
+
   def join_numbers
     strip_numbers.sort.join
   end
