@@ -7,10 +7,10 @@ class Deck
   private
 
   def shuffle_deck
-    make_special_cards.shuffle
+    make_face_cards.shuffle
   end
 
-  def make_special_cards
+  def make_face_cards
     make_suits.map do |card|
       if /^1\D/ =~ card
         card.sub(/^1/, "A")
