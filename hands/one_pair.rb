@@ -12,10 +12,10 @@ class OnePair
   private
 
   def join_numbers
-    strip_numbers.sort.join
+    strip_suit.sort.join
   end
 
-  def strip_numbers
+  def strip_suit
     @hand.map do |card|
       card.chop
     end
