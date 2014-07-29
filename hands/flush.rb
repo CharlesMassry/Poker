@@ -4,7 +4,7 @@ class Flush
   end
 
   def check_flush
-    if /HHHH|SSSS|DDDD|CCCC/ =~ join_suit
+    if /(.)\1{3,}/ =~ join_suit
       "Flush"
     end
   end
